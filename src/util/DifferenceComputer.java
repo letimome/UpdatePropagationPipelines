@@ -73,7 +73,7 @@ public class DifferenceComputer {
     
     
 
-	public static List<DiffEntry> getChangedFilesBetweenTwoCommits(String coreRepoPath, ObjectId commitSha1, ObjectId commitSha2){
+	public static List<DiffEntry> getChangedFilesBetweenTwoCommits(String repoPath, ObjectId ancestor, ObjectId commit){
     	List<DiffEntry> diffs = null;
     	
     	try{
@@ -82,14 +82,14 @@ public class DifferenceComputer {
 	        // This means we are selecting the parent of the parent of the parent of the parent of current HEAD and
 	        // take the tree-ish of it
 	    	
-	    	Git git = Git.open (new File (coreRepoPath));
+	    	Git git = Git.open (new File (repoPath));
 	        Repository repository  = git.getRepository();
 	        
 	    	//ObjectId oldHead = repository.resolve(repository.findRef(branchToLookInto).getObjectId().getName()+"^^{tree}");//http://download.eclipse.org/jgit/site/4.2.0.201601211800-r/apidocs/org/eclipse/jgit/lib/Repository.html#resolve(java.lang.String)
 	        //ObjectId head = repository.resolve(repository.findRef(branchToLookInto).getObjectId().getName()+"^{tree}");
 	        
-	        ObjectId oldHead = repository.resolve(commitSha1.getName()+"^{tree}");//http://download.eclipse.org/jgit/site/4.2.0.201601211800-r/apidocs/org/eclipse/jgit/lib/Repository.html#resolve(java.lang.String)
-	        ObjectId head = repository.resolve(commitSha2.getName()+"^{tree}");
+	        ObjectId oldHead = repository.resolve(ancestor.getName()+"^{tree}");//http://download.eclipse.org/jgit/site/4.2.0.201601211800-r/apidocs/org/eclipse/jgit/lib/Repository.html#resolve(java.lang.String)
+	        ObjectId head = repository.resolve(commit.getName()+"^{tree}");
 	        
 	        System.out.println("Printing diff between tree: " + oldHead + "and" + head);
 	
