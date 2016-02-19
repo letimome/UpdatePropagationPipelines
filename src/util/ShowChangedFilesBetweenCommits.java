@@ -16,6 +16,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import org.eclipse.jgit.api.CreateBranchCommand.SetupUpstreamMode;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.diff.DiffEntry;
@@ -42,15 +43,29 @@ public class ShowChangedFilesBetweenCommits {
 
     public static void main(String[] args) throws IOException, GitAPIException {
     	///
-    	String coreRepoPath= "/Users/Onekin/Desktop/VODPlayer-CoreAssets-2";//args[0];
+    	String coreRepoPath= "/Users/leticia/Desktop/VODPlayer-CoreAssets-2";//args[0];
     	String branchToLookInto="develop.coreAssets";
-    	Git git = Git.open (new File (coreRepoPath));
-        Repository repository  = git.getRepository();
-        
-        ObjectId parentCommit = repository.resolve(repository.findRef(branchToLookInto).getObjectId().getName()+"^^{commit}");//http://download.eclipse.org/jgit/site/4.2.0.201601211800-r/apidocs/org/eclipse/jgit/lib/Repository.html#resolve(java.lang.String)
-        ObjectId currentCommit = repository.resolve(repository.findRef(branchToLookInto).getObjectId().getName()+"^{commit}");
-        
-        List<DiffEntry> asda= getChangedFilesBetweenTwoCommits( coreRepoPath, currentCommit, parentCommit);
+    	try{
+    		Git git = Git.open (new File (coreRepoPath));
+            Repository repository  = git.getRepository();
+            
+            Ref ref = git.checkout().
+                    setCreateBranch(true).
+                    setName(branchToLookInto).
+                    setUpstreamMode(SetupUpstreamMode.TRACK).
+                    setStartPoint("origin/" + branchToLookInto).
+                    call();
+            
+            ObjectId parentCommit = repository.resolve(repository.findRef(branchToLookInto).getObjectId().getName()+"^^{commit}");//http://download.eclipse.org/jgit/site/4.2.0.201601211800-r/apidocs/org/eclipse/jgit/lib/Repository.html#resolve(java.lang.String)
+            ObjectId currentCommit = repository.resolve(repository.findRef(branchToLookInto).getObjectId().getName()+"^{commit}");
+            
+            List<DiffEntry> asda= getChangedFilesBetweenTwoCommits( coreRepoPath, currentCommit, parentCommit);
+    	}
+    	catch(Exception e){
+    		e.getMessage();
+    		e.printStackTrace();
+    	}
+    	
     }
     
     

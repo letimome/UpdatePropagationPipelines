@@ -22,7 +22,7 @@ public class IdentifyChange {
 	static String productRepoPath="/Users/Onekin/Desktop/Product-Repository-VODD2";//args[1];
 	static Integer timeFrame= 10;//Integer.parseInt(args[2]);
 	static String changeTypeToPropagate="enhancement";//args[3];; //change types considered are: "hotfix", "enhancement", "new feature"
-	static String pathToIdentifiedChangeCommits="/Users/Onekin/Desktop/identifyChange";//;args[4];
+	static String pathToIdentifiedChangeCommits="/Users/leticia/Desktop/identifyChange";//;args[4];
 	static String msgKeyWord = null;
 
 	public static void main(String[] args) {
