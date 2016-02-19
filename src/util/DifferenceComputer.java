@@ -39,7 +39,7 @@ import org.eclipse.jgit.treewalk.CanonicalTreeParser;
  *
  * @author dominik.stadler at gmx.at
  */
-public class ShowChangedFilesBetweenCommits {
+public class DifferenceComputer {
 
     public static void main(String[] args) throws IOException, GitAPIException {
     	///
