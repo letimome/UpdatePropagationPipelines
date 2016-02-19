@@ -43,7 +43,7 @@ public class DifferenceComputer {
 
     public static void main(String[] args) throws IOException, GitAPIException {
     	///
-    	String coreRepoPath= "/Users/leticia/Desktop/VODPlayer-CoreAssets-2";//args[0];
+    	String coreRepoPath= "/Users/Onekin/Desktop/VODPlayer-CoreAssets-2";//args[0];
     	String branchToLookInto="develop.coreAssets";
     	try{
     		Git git = Git.open (new File (coreRepoPath));
