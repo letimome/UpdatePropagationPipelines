@@ -48,18 +48,21 @@ public class ShowChangedFilesBetweenCommits {
     	try{
     		Git git = Git.open (new File (coreRepoPath));
             Repository repository  = git.getRepository();
-            
-            Ref ref = git.checkout().
-                    setCreateBranch(true).
-                    setName(branchToLookInto).
-                    setUpstreamMode(SetupUpstreamMode.TRACK).
-                    setStartPoint("origin/" + branchToLookInto).
-                    call();
+            Ref ref =repository.findRef(branchToLookInto);
+            if (ref == null){
+            	ref = git.checkout().
+            	setCreateBranch(true).
+                setName(branchToLookInto).
+                setUpstreamMode(SetupUpstreamMode.TRACK).
+                setStartPoint("origin/" + branchToLookInto).
+                call();
+            }
+           
             
             ObjectId parentCommit = repository.resolve(repository.findRef(branchToLookInto).getObjectId().getName()+"^^{commit}");//http://download.eclipse.org/jgit/site/4.2.0.201601211800-r/apidocs/org/eclipse/jgit/lib/Repository.html#resolve(java.lang.String)
             ObjectId currentCommit = repository.resolve(repository.findRef(branchToLookInto).getObjectId().getName()+"^{commit}");
             
-            List<DiffEntry> asda= getChangedFilesBetweenTwoCommits( coreRepoPath, currentCommit, parentCommit);
+            List<DiffEntry> listOfChangedFiles= getChangedFilesBetweenTwoCommits( coreRepoPath, currentCommit, parentCommit);
     	}
     	catch(Exception e){
     		e.getMessage();
