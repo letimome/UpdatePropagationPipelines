@@ -35,7 +35,7 @@ import pipeline.IdentifyChange;
 public class IdentifyEnhancement extends IdentifyChange{
 	
 static //	/** For desktop develop
-	String where="Onekin";//leticia/jenkins
+	String where="jenkins";//leticia/jenkins
 	
 	static String coreRepoPath ;
 	static String productRepoPath;
@@ -51,6 +51,8 @@ static //	/** For desktop develop
 	public static void main(String[] args) {
 		
 		if (where.contains("jenkins")){
+			System.out.println("Inside algorithm");
+			
 			  coreRepoPath= "./coreRepo";//args[0];
 			  productRepoPath="./productRepo";
 			  pathToIdentifiedChangeCommits="coreRepoPath/identifyCommits.csv";//;args[4];
