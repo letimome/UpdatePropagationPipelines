@@ -47,7 +47,7 @@ public class PropagateChangeToProductRepo extends PropagateChange{
 		//for each path move File to destination and overwrite
 		ArrayList<String> listFilePaths = readListOFilesToPropagateFromLocal(pathToPropagationUnits, coreRepoPath,productRepoPath);
 		
-		Iterator it=listFilePaths.iterator();
+		Iterator<String> it=listFilePaths.iterator();
 		String filePath;
 		
 		

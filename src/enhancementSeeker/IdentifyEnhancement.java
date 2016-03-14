@@ -34,17 +34,13 @@ import pipeline.IdentifyChange;
 
 public class IdentifyEnhancement extends IdentifyChange{
 	
-//	/** For desktop develop
-	static String coreRepoPath= "/Users/leticia/Desktop/VODPlayer-CoreAssets-2";//args[0];
-	static String productRepoPath="/Users/leticia/Desktop/Product-Repository-VODD2";//args[1];
-	static String pathToIdentifiedChangeCommits="/Users/leticia/Desktop/PipelineData/identifyCommits.csv";//;args[4];
-//		*/
+static //	/** For desktop develop
+	String where="Onekin";//leticia/jenkins
 	
-	/** For jenkins test
-	static String coreRepoPath= "./coreRepo";//args[0];
-	static String productRepoPath="./productRepo";
-	static String pathToIdentifiedChangeCommits="./identifyCommits.csv";//;args[4];
-	*/
+	static String coreRepoPath ;
+	static String productRepoPath;
+	static String pathToIdentifiedChangeCommits;
+
 	static Integer timeFrame= 10;//Integer.parseInt(args[2]);
 	static String changeTypeToPropagate="enhancement";//args[3];; //change types considered are: "hotfix", "enhancement", "new feature"
 	
@@ -53,6 +49,22 @@ public class IdentifyEnhancement extends IdentifyChange{
 	static String branchToLookInto = "develop.coreAssets";
 
 	public static void main(String[] args) {
+		
+		if (where.contains("jenkins")){
+			  coreRepoPath= "./coreRepo";//args[0];
+			  productRepoPath="./productRepo";
+			  pathToIdentifiedChangeCommits="./identifyCommits.csv";//;args[4];
+		}
+		else{
+			coreRepoPath= "/Users/"+where+"/Desktop/VODPlayer-CoreAssets-2";//args[0];
+		productRepoPath="/Users/Onekin/Desktop/Product-Repository-VODD2";//args[1];
+		pathToIdentifiedChangeCommits="/Users/leticia/Desktop/PipelineData/identifyCommits.csv";//;args[4];
+//			
+		}
+	
+		
+		
+		
 	/*	if (args.length!=5){
 			System.out.println ("Parameters not completed. "+args.length);
 			return;
