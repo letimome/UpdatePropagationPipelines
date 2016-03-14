@@ -55,12 +55,12 @@ static //	/** For desktop develop
 			
 			  coreRepoPath= "./coreRepo";//args[0];
 			  productRepoPath="./productRepo";
-			  pathToIdentifiedChangeCommits="coreRepoPath/identifyCommits.csv";//;args[4];
+			  pathToIdentifiedChangeCommits="./identifyCommits.csv";//;args[4];
 		}
 		else{
 			coreRepoPath= "/Users/"+where+"/Desktop/VODPlayer-CoreAssets-2";//args[0];
-		productRepoPath="/Users/Onekin/Desktop/Product-Repository-VODD2";//args[1];
-		pathToIdentifiedChangeCommits="/Users/leticia/Desktop/PipelineData/identifyCommits.csv";//;args[4];
+		productRepoPath="/Users/"+where+"/Desktop/Product-Repository-VODD2";//args[1];
+		pathToIdentifiedChangeCommits="/Users/"+where+"/Desktop/PipelineData/identifyCommits.csv";//;args[4];
 //			
 		}
 	
