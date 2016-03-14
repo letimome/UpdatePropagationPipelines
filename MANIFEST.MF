@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Main-Class: enhancementSeeker.IdentifyEnhancement
+
+Name: util/
+Sealed: true
+
+Name: pipeline/
+Sealed: true
+
+Name: enhancementSeeker/
+Sealed: true
+
