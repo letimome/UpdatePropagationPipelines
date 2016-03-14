@@ -41,7 +41,7 @@ static //	/** For desktop develop
 	static String productRepoPath;
 	static String pathToIdentifiedChangeCommits;
 
-	static Integer timeFrame= 10;//Integer.parseInt(args[2]);
+	static Integer timeFrame= 7;//Integer.parseInt(args[2]);
 	static String changeTypeToPropagate="enhancement";//args[3];; //change types considered are: "hotfix", "enhancement", "new feature"
 	
 	
@@ -53,7 +53,7 @@ static //	/** For desktop develop
 		if (where.contains("jenkins")){
 			  coreRepoPath= "./coreRepo";//args[0];
 			  productRepoPath="./productRepo";
-			  pathToIdentifiedChangeCommits="./identifyCommits.csv";//;args[4];
+			  pathToIdentifiedChangeCommits="coreRepoPath/identifyCommits.csv";//;args[4];
 		}
 		else{
 			coreRepoPath= "/Users/"+where+"/Desktop/VODPlayer-CoreAssets-2";//args[0];
