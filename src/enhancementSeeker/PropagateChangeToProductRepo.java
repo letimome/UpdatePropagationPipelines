@@ -103,8 +103,8 @@ public class PropagateChangeToProductRepo extends PropagateChange{
 			String productRepoPath2) {
 		// TODO Auto-generated method stub
 		ArrayList<String> list=new ArrayList<String>();
-		list.add("features/MPEGDecoder/ViewMovieDetail/MPEGDecoder/VODClient.java");
-		list.add("features/MPEGDecoder/ViewMovieDetail/MPEGDecoder/ListFrame.java");
+		list.add("features/ViewMovieDetail/MPEGDecoder/VODClient.java");
+		list.add("features/ViewMovieDetail/MPEGDecoder/ListFrame.java");
 		return list;
 	}
 
