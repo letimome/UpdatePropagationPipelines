@@ -153,8 +153,9 @@ public class EvaluateEnhancement {
 		    System.out.println("fuera del evaluate");
 		    return commitList;
 		} catch (Exception e) {
-			 System.out.println("arazoa irakurtzen");
-			e.printStackTrace();
+			 System.out.println("arazoa irakurtzen:"+e.getStackTrace()+"\n"+e.getMessage());
+			
+			 e.printStackTrace();
 		} 
 		return null;
 	}
