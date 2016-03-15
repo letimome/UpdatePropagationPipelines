@@ -56,7 +56,7 @@ public class PropagateChangeToProductRepo extends PropagateChange{
 		
 		System.out.println("Going to create new branch");
 		Git git;
-		String newBranchPattern="feature/update";
+		String newBranchPattern="feature/update/CA";
 		Ref newBranchaux;
 		
 		try {
@@ -74,7 +74,7 @@ public class PropagateChangeToProductRepo extends PropagateChange{
 			while (it.hasNext()){
 				i++;
 				newBranchaux=git.branchCreate().setName(newBranchPattern+"-"+i).call();
-				git.checkout().setName(newBranchPattern+"CA3").call();
+				git.checkout().setName(newBranchPattern+"-"+i).call();
 				filePath = it.next().toString();
 				//PARSE IT "," and do a for each file to commit
 				org.apache.commons.io.FileUtils.copyFile(new File(coreRepoPath+filePath), new File(productRepoPath+filePath));
