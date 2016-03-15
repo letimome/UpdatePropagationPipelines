@@ -53,7 +53,7 @@ public class PropagateChangeToProductRepo extends PropagateChange{
 		
 		System.out.println("Going to create new branch");
 		Git git;
-		String newBranchPattern="feature/enhancement";
+		String newBranchPattern="feature/CA";
 		Ref newBranchaux;
 		
 		try {
