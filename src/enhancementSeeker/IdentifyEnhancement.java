@@ -50,14 +50,14 @@ static //	/** For desktop develop
 
 	public static void main(String[] args) {
 		
-		//if (where.contains("jenkins")){
+		
 			System.out.println("Inside the algorithm!");
 			
 			  coreRepoPath= "./coreRepo";//args[0];
 			  productRepoPath="./productRepo";
 			  pathToIdentifiedChangeCommits="./interestingCommits.csv";//;args[4];
-		//}
-	//	else{
+
+			  
 			// coreRepoPath= "/Users/"+where+"/Desktop/VODPlayer-CoreAssets-2";//args[0];
 		//productRepoPath="/Users/"+where+"/Desktop/Product-Repository-VODD2";//args[1];
 		//pathToIdentifiedChangeCommits="/Users/"+where+"/Desktop/PipelineData/identifyCommits.csv";//;args[4];
@@ -65,15 +65,12 @@ static //	/** For desktop develop
 		//}
 	
 		
-		
-		
 	/*	if (args.length!=5){
 			System.out.println ("Parameters not completed. "+args.length);
 			return;
 		}	
 		*/
 		//experimental();
-	
 		//extractParameters(args);
 		
 		msgKeyWord = extractKeywordsForChangeType(changeTypeToPropagate);

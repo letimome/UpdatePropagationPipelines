@@ -30,18 +30,20 @@ import util.MetricComputer;
 
 public class EvaluateEnhancement {
 	
-	static String coreRepoPath= "/Users/leticia/Desktop/VODPlayer-CoreAssets-2";//args[0];
+	/*static String coreRepoPath= "/Users/leticia/Desktop/VODPlayer-CoreAssets-2";//args[0];
 	static String productRepoPath="/Users/leticia/Desktop/Product-Repository-VODD2";//args[1];
 	static String pathToIdentifiedChangeCommits="/Users/leticia/Desktop/PipelineData/identifyCommits.csv";//;args[4];
 	
 	static String pathToPropagationUnits="/Users/leticia/Desktop/PipelineData/propagationUnits.csv";//;args[4];
 	static String pathToCommitEvaluation="/Users/leticia/Desktop/PipelineData/enhancementEvaluation.csv";//;args[4];
+	*/
 	
-	/** For jenkins test
 	static String coreRepoPath= "./coreRepo";//args[0];
 	static String productRepoPath="./productRepo";
 	static String pathToIdentifiedChangeCommits="./identifyCommits.csv";//;args[4];
-	*/
+	static String pathToPropagationUnits="./propagationUnits.csv";//;args[4];
+	static String pathToCommitEvaluation="./enhancementEvaluation.csv";//;args[4];
+	
 	
 	static int featureImportance=10;
 	static int linesAdded=20000;
@@ -102,9 +104,6 @@ public class EvaluateEnhancement {
 		}
 		return;
 	}
-
-
-	
 	
 	private static List<ObjectId> evaluateCommitsToPropagate(List<ObjectId> commitList) {
 		//iterar por cada commit y llamar a evaluateCommit
@@ -128,13 +127,13 @@ public class EvaluateEnhancement {
 			Repository coreRepo = git.getRepository();
 	        
 	        //Ref master = repo.findRef("master.baseline");	System.out.print(master.getTarget().getObjectId());
-			Ref develop = coreRepo.findRef("develop.coreAssets"); 
+			Ref develop = coreRepo.findRef("develop"); 
 			
 			if (develop == null){
 	            	develop = git.checkout().setCreateBranch(true).
-	            			setName("develop.coreAssets").
+	            			setName("develop").
 	            			setUpstreamMode(SetupUpstreamMode.TRACK).
-	            			setStartPoint("origin/" + "develop.coreAssets").call();
+	            			setStartPoint("origin/" + "develop").call();
 	        }
 			
 			BufferedReader br = new BufferedReader(new FileReader(pathToIdentifiedChangeCommits2));
@@ -156,8 +155,6 @@ public class EvaluateEnhancement {
 			e.printStackTrace();
 		} 
 		return null;
-		
-		
 	}
 
 }
