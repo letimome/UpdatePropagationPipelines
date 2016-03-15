@@ -39,8 +39,8 @@ public class EvaluateEnhancement {
 
 	
 
-	static String coreRepoPath= "./coreRepo";//args[0];
-	static String productRepoPath="./productRepo";
+	static String coreRepoPath= "./coreRepo/";//args[0];
+	static String productRepoPath="./productRepo/";
 	static String pathToIdentifiedChangeCommits="./../IdentifyEnhancements/interestingCommits.csv";//;args[4];
 	static String pathToPropagationUnits="./propagationUnits.csv";//;args[4];
 
@@ -83,9 +83,9 @@ public class EvaluateEnhancement {
 			
 			RevCommit revCommit, parent;// = walk.parseCommit(objectIdOfCommit);
 			writer = new PrintWriter(pathToPropagationUnits, "UTF-8");
-			writer.print("features/MPEGDecoder/ViewMovieDetail/MPEGDecoder/ListFrame.java");
-			writer.print("features/MPEGDecoder/ViewMovieDetail/MPEGDecoder/VODClient.java");
-			
+			writer.println("features/MPEGDecoder/ViewMovieDetail/MPEGDecoder/ListFrame.java");
+			writer.println("features/MPEGDecoder/ViewMovieDetail/MPEGDecoder/VODClient.java");
+			writer.close();
 			/*while(i.hasNext()){
 				commitObjectId=i.next();
 				
