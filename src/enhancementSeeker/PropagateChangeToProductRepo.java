@@ -9,8 +9,11 @@ import java.util.Iterator;
 import org.apache.commons.*;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.CreateBranchCommand.SetupUpstreamMode;
+import org.eclipse.jgit.api.PushCommand;
 import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.lib.Repository;
+import org.eclipse.jgit.transport.CredentialsProvider;
+import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider;
 import org.eclipse.jgit.util.FileUtils;
 
 import pipeline.PropagateChange;
@@ -52,7 +55,7 @@ public class PropagateChangeToProductRepo extends PropagateChange{
 		
 		Iterator<String> it=listFilePaths.iterator();
 		String filePath;
-		
+		  CredentialsProvider cp = new UsernamePasswordCredentialsProvider("jenkinsPropagator", "Florentina88");
 		
 		System.out.println("Going to create new branch");
 		Git git;
@@ -84,9 +87,14 @@ public class PropagateChangeToProductRepo extends PropagateChange{
 				git.commit().setMessage("automated propagation").call();
 				// PUSH TO REMOTE
 				
+				PushCommand pc = git.push();
+		        pc.setCredentialsProvider(cp)
+		                .setForce(true)
+		                .setPushAll();
+				
 				//FALTAN LAS CREDENCIALES!!!
-				git.push().add(newBranchPattern+"-"+i).setPushTags().call();
-				git.push().add(productRepoPath).call();
+				//git.push().add(newBranchPattern+"-"+i).setPushTags().call();
+				//git.push().add(productRepoPath).call();
 				
 				//OPEN PULL REQUESTS, PRINT PULL REQUEST INTO FILE!
 				
