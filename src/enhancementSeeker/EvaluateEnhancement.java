@@ -143,10 +143,9 @@ public class EvaluateEnhancement {
 	
 		    while (line != null) {
 		        sb.append(line);
-		        //sb.append(System.lineSeparator());
+		        System.out.println("line:"+line);
 		        commit= coreRepo.resolve(sb.toString()+"^{commit}");
 		        System.out.println("Read commit: "+commit.getName());
-		       
 				commitList.add(commit);
 		        line = br.readLine();
 		    }
@@ -154,6 +153,7 @@ public class EvaluateEnhancement {
 		    System.out.println("fuera del evaluate");
 		    return commitList;
 		} catch (Exception e) {
+			 System.out.println("arazoa irakurtzen");
 			e.printStackTrace();
 		} 
 		return null;
