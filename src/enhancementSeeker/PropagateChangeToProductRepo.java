@@ -17,8 +17,8 @@ import pipeline.PropagateChange;
 
 public class PropagateChangeToProductRepo extends PropagateChange{
 
-	static String coreRepoPath= "./coreRepo";//args[0];
-	static String productRepoPath="./productRepo";
+	static String coreRepoPath= "./coreRepo/";//args[0];
+	static String productRepoPath="./productRepo/";
 	
 	
 	
