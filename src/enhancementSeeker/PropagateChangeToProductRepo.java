@@ -17,9 +17,12 @@ import pipeline.PropagateChange;
 
 public class PropagateChangeToProductRepo extends PropagateChange{
 
-	static String coreRepoPath= "/Users/leticia/Desktop/VODPlayer-CoreAssets-2/";//args[0];
-	static String productRepoPath="/Users/leticia/Desktop/Product-Repository-VODD2/";//args[1];
-	static String pathToPropagationUnits="/Users/leticia/Desktop/PipelineData/identifyCommits.csv";//;args[4];
+	static String coreRepoPath= "./coreRepo";//args[0];
+	static String productRepoPath="./productRepo";
+	
+	
+	
+	static String pathToPropagationUnits="./../EvaluateEnhancements/propagationUnits.csv";//;args[4];
 	
 	/**
 	 * 
@@ -101,6 +104,7 @@ public class PropagateChangeToProductRepo extends PropagateChange{
 		// TODO Auto-generated method stub
 		ArrayList<String> list=new ArrayList<String>();
 		list.add("ViewMovieDetail/MPEGDecoder/VODClient.java");
+		list.add("ViewMovieDetail/MPEGDecoder/ListFrame.java");
 		return list;
 	}
 
