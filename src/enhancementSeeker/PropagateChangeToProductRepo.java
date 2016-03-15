@@ -56,7 +56,7 @@ public class PropagateChangeToProductRepo extends PropagateChange{
 		
 		System.out.println("Going to create new branch");
 		Git git;
-		String newBranchPattern="feature/CA";
+		String newBranchPattern="feature/update";
 		Ref newBranchaux;
 		
 		try {
@@ -103,8 +103,8 @@ public class PropagateChangeToProductRepo extends PropagateChange{
 			String productRepoPath2) {
 		// TODO Auto-generated method stub
 		ArrayList<String> list=new ArrayList<String>();
-		list.add("ViewMovieDetail/MPEGDecoder/VODClient.java");
-		list.add("ViewMovieDetail/MPEGDecoder/ListFrame.java");
+		list.add("features/MPEGDecoder/ViewMovieDetail/MPEGDecoder/VODClient.java");
+		list.add("features/MPEGDecoder/ViewMovieDetail/MPEGDecoder/ListFrame.java");
 		return list;
 	}
 

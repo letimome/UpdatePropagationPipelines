@@ -83,8 +83,8 @@ public class EvaluateEnhancement {
 			
 			RevCommit revCommit, parent;// = walk.parseCommit(objectIdOfCommit);
 			writer = new PrintWriter(pathToPropagationUnits, "UTF-8");
-			writer.print("features/viewMovieDetail/MPEGDecoder/ListFrame.java");
-			writer.print("features/viewMovieDetail/MPEGDecoder/Movie.java");
+			writer.print("features/MPEGDecoder/ViewMovieDetail/MPEGDecoder/ListFrame.java");
+			writer.print("features/MPEGDecoder/ViewMovieDetail/MPEGDecoder/VODClient.java");
 			
 			/*while(i.hasNext()){
 				commitObjectId=i.next();
