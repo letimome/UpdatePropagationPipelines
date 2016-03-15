@@ -35,7 +35,7 @@ import pipeline.IdentifyChange;
 public class IdentifyEnhancement extends IdentifyChange{
 	
 static //	/** For desktop develop
-	String where="Onekin";//leticia/jenkins
+	String where="jenkins";//leticia/jenkins
 	
 	static String coreRepoPath ;
 	static String productRepoPath;
