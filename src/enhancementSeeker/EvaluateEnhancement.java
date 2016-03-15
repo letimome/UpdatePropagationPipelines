@@ -29,20 +29,21 @@ import util.DifferenceComputer;
 import util.MetricComputer;
 
 public class EvaluateEnhancement {
+	/*
+	static String coreRepoPath= "/Users/Onekin/Desktop/coreRepo";//args[0];
+	static String productRepoPath="/Users/Onekin/Desktop/productRepo";//args[1];
+	static String pathToIdentifiedChangeCommits="/Users/Onekin/Desktop/PipelineData/identifyCommits.csv";//;args[4];
 	
-	/*static String coreRepoPath= "/Users/leticia/Desktop/VODPlayer-CoreAssets-2";//args[0];
-	static String productRepoPath="/Users/leticia/Desktop/Product-Repository-VODD2";//args[1];
-	static String pathToIdentifiedChangeCommits="/Users/leticia/Desktop/PipelineData/identifyCommits.csv";//;args[4];
+	static String pathToPropagationUnits="/Users/Onekin/Desktop/PipelineData/propagationUnits.csv";//;args[4];
 	
-	static String pathToPropagationUnits="/Users/leticia/Desktop/PipelineData/propagationUnits.csv";//;args[4];
-	static String pathToCommitEvaluation="/Users/leticia/Desktop/PipelineData/enhancementEvaluation.csv";//;args[4];
-	*/
+*/	
 	
+
 	static String coreRepoPath= "./coreRepo";//args[0];
 	static String productRepoPath="./productRepo";
 	static String pathToIdentifiedChangeCommits="./../IdentifyEnhancements/interestingCommits.csv";//;args[4];
 	static String pathToPropagationUnits="./propagationUnits.csv";//;args[4];
-	//static String pathToCommitEvaluation="./enhancementEvaluation.csv";//;args[4];
+
 	
 	
 	static int featureImportance=10;
@@ -150,6 +151,7 @@ public class EvaluateEnhancement {
 		        line = br.readLine();
 		    }
 		    br.close();
+		    System.out.println("fuera del evaluate");
 		    return commitList;
 		} catch (Exception e) {
 			e.printStackTrace();
