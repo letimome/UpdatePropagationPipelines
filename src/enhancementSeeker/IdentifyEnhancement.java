@@ -199,7 +199,7 @@ static //	/** For desktop develop
 			/***
 			 * HAY QUE IMPLEMENTAR ESTO
 			****/
-			if (commit.getId().toString()=="b328c229426e764078cdcaf18da3c6486e5dec69")
+			if (commit.getName().toString().contentEquals("b328c229426e764078cdcaf18da3c6486e5dec69"))
 				return false;
 			else return true;
 		} catch (Exception e) {

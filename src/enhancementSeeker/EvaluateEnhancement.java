@@ -29,14 +29,14 @@ import util.DifferenceComputer;
 import util.MetricComputer;
 
 public class EvaluateEnhancement {
-	/*
-	static String coreRepoPath= "/Users/Onekin/Desktop/coreRepo";//args[0];
+	
+	/*static String coreRepoPath= "/Users/Onekin/Desktop/coreRepo";//args[0];
 	static String productRepoPath="/Users/Onekin/Desktop/productRepo";//args[1];
-	static String pathToIdentifiedChangeCommits="/Users/Onekin/Desktop/PipelineData/identifyCommits.csv";//;args[4];
+	static String pathToIdentifiedChangeCommits="/Users/Onekin/Desktop/interestingCommits.csv";//;args[4];
 	
-	static String pathToPropagationUnits="/Users/Onekin/Desktop/PipelineData/propagationUnits.csv";//;args[4];
-	
-*/	
+	static String pathToPropagationUnits="/Users/Onekin/Desktop/propagationUnits.csv";//;args[4];
+	*/
+
 	
 
 	static String coreRepoPath= "./coreRepo";//args[0];
@@ -83,7 +83,10 @@ public class EvaluateEnhancement {
 			
 			RevCommit revCommit, parent;// = walk.parseCommit(objectIdOfCommit);
 			writer = new PrintWriter(pathToPropagationUnits, "UTF-8");
-			while(i.hasNext()){
+			writer.print("features/viewMovieDetail/MPEGDecoder/ListFrame.java");
+			writer.print("features/viewMovieDetail/MPEGDecoder/Movie.java");
+			
+			/*while(i.hasNext()){
 				commitObjectId=i.next();
 				
 				revCommit = walk.parseCommit(commitObjectId);
@@ -96,10 +99,11 @@ public class EvaluateEnhancement {
 					writer.print(diffEntry.getNewPath());//Prints the path of the file to propagate, comma separated
 					if (diffIte.hasNext()) writer.print(",");
 				}
+				
 				System.out.println("File to propagate: "+ diffEntry.getNewPath());
 				writer.println();//new propagation Unit
 			}//end while
-			writer.close();
+			writer.close();*/
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -120,10 +124,10 @@ public class EvaluateEnhancement {
 	}
 	
 	private static List<ObjectId> readIdentifiedCommitsFromFile(String pathToIdentifiedChangeCommits2, String coreRepoPath) {
-		
+		ObjectId commit;
+		ArrayList<ObjectId> commitList = new ArrayList<ObjectId>() ;
 		try {
-			ObjectId commit;
-			ArrayList<ObjectId> commitList = new ArrayList<ObjectId>() ;
+			
 			Git git = Git.open(new File (coreRepoPath));
 			Repository coreRepo = git.getRepository();
 	        
@@ -139,15 +143,16 @@ public class EvaluateEnhancement {
 			
 			BufferedReader br = new BufferedReader(new FileReader(pathToIdentifiedChangeCommits2));
 		    StringBuilder sb = new StringBuilder();
-		    String line = br.readLine();//lines are commitIds
+		    String line = br.readLine(); //lines are commitIds
 	
 		    while (line != null) {
 		        sb.append(line);
 		        System.out.println("line:"+line);
-		        commit= coreRepo.resolve(sb.toString()+"^{commit}");
+		        commit= coreRepo.resolve(sb+"^{commit}");
 		        System.out.println("Read commit: "+commit.getName());
 				commitList.add(commit);
 		        line = br.readLine();
+		        break;//solo funciona con uno.s
 		    }
 		    br.close();
 		    System.out.println("fuera del evaluate");
@@ -157,7 +162,7 @@ public class EvaluateEnhancement {
 			
 			 e.printStackTrace();
 		} 
-		return null;
+		return commitList;
 	}
 
 }
