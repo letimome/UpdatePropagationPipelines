@@ -46,16 +46,16 @@ static //	/** For desktop develop
 	
 	
 	static String msgKeyWord = null;
-	static String branchToLookInto = "develop.coreAssets";
+	static String branchToLookInto = "develop";
 
 	public static void main(String[] args) {
 		
 		if (where.contains("jenkins")){
-			System.out.println("Inside algorithm");
+			System.out.println("Inside the algorithm!");
 			
 			  coreRepoPath= "./coreRepo";//args[0];
 			  productRepoPath="./productRepo";
-			  pathToIdentifiedChangeCommits="./identifyCommits.csv";//;args[4];
+			  pathToIdentifiedChangeCommits="./interestingCommits.csv";//;args[4];
 		}
 		else{
 			coreRepoPath= "/Users/"+where+"/Desktop/VODPlayer-CoreAssets-2";//args[0];
