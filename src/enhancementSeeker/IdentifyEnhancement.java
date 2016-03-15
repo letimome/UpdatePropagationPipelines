@@ -199,7 +199,9 @@ static //	/** For desktop develop
 			/***
 			 * HAY QUE IMPLEMENTAR ESTO
 			****/
-			return true;
+			if (commit.getId().toString()=="b328c229426e764078cdcaf18da3c6486e5dec69")
+				return false;
+			else return true;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

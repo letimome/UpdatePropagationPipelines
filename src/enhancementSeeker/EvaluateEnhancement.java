@@ -40,9 +40,9 @@ public class EvaluateEnhancement {
 	
 	static String coreRepoPath= "./coreRepo";//args[0];
 	static String productRepoPath="./productRepo";
-	static String pathToIdentifiedChangeCommits="../IdentifyEnhancements/coreRepo/interestingCommits.csv";//;args[4];
+	static String pathToIdentifiedChangeCommits="./../IdentifyEnhancements/interestingCommits.csv";//;args[4];
 	static String pathToPropagationUnits="./propagationUnits.csv";//;args[4];
-	static String pathToCommitEvaluation="./enhancementEvaluation.csv";//;args[4];
+	//static String pathToCommitEvaluation="./enhancementEvaluation.csv";//;args[4];
 	
 	
 	static int featureImportance=10;
