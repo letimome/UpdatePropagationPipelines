@@ -55,7 +55,7 @@ public class PropagateChangeToProductRepo extends PropagateChange{
 		
 		Iterator<String> it=listFilePaths.iterator();
 		String filePath;
-		  CredentialsProvider cp = new UsernamePasswordCredentialsProvider("jenkinsPropagator", "Florentina88");
+		  CredentialsProvider cp = new UsernamePasswordCredentialsProvider("jenkinsPropagator", "password");
 		
 		System.out.println("Going to create new branch");
 		Git git;
